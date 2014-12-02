@@ -1,0 +1,48 @@
+<div class="container">
+  <h1>Edit Your profile:</h1>
+
+  <%= form_for current_user, :html => {:multipart => true} do |f| %>
+      <div>
+        <%= image_tag @user.avatar.url(:medium) %><br>
+        <%= f.label :avatar, 'Pick a pic' %>
+        <%= f.file_field :avatar %>
+      </div>
+    
+    <div class ="profile_edit">
+      <div><%= f.label :username %><br />
+      <%= f.text_field :username%>
+      </div>
+
+      <div><%= f.label :email %><br />
+      <%= f.email_field :email%>
+      </div>
+
+      <div><%= f.label :first_name %><br />
+      <%= f.text_field :fname %>
+      </div>
+      <div><%= f.label :last_name %><br />
+      <%= f.text_field :lname %>
+      </div>
+      <div><%= f.label :location %><br />
+      <%= f.text_field :location %>
+      </div><br />
+      <div><%= f.label :description %><br />
+        <%= f.text_area :description, placeholder: 'What describes you best...' %>
+      </div><br />
+      <div><%= f.label :service %><br />
+        <%= f.text_area :offering, placeholder: 'Write your service...' %>
+      </div>
+      <div><%= f.label :address %><br />
+        <%= f.text_field :address %>
+      </div>
+      <div>
+      <%= f.submit "Update" %>
+      </div>
+    <% end %>
+    <br />
+    <%= link_to 'Sign out', destroy_user_session_path, method: :delete, :style => "color:black"  %>
+    <br /><br />
+      <%= button_to "Delete My Account", user_registration_path, data: { confirm: "Are you sure?" }, :method => :delete %>
+
+
+</div>

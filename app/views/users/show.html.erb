@@ -1,0 +1,32 @@
+
+<div class="container">
+
+	<h1><span>Profile Page</span></h1>
+
+		<h2><%= @user.username %></h2>
+		<%= image_tag @user.avatar.url(:medium) %>
+
+
+		<h3><%=link_to @user.email %></h3>
+
+		<p><strong>First Name: </strong><%= @user.fname %></p>
+		<p><strong>Last Name: </strong><%= @user.lname %></p>
+		<p><strong>Location: </strong><%= @user.location %></p>
+		<p><strong>Description: </strong><%= @user.description %></p>
+		<p><strong>Service: </strong><%= @user.offering %></p><br />
+
+		<div style='width: 600px;'>
+  		<div id="map" style='width: 600px; height: 400px;'></div>
+		</div><br />
+
+	</div>
+</div>
+
+<script type="text/javascript">
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+markers = handler.addMarkers(<%=raw @hash.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+</script>

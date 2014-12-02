@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+
+  
+  devise_scope :sessions do
+    get "users/sign_out", to: "home#index"
+  end
+
+  devise_for :users, :controllers => { :registrations => "registrations" }
+  resources :users
+
+  root 'home#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
