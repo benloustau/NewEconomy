@@ -1,24 +1,32 @@
-<body class="homepage">
-  <div class ="sign_up_box">
+<div class="h2">Sign up</div>
+  <div class ="log_in_box">
     <div class ="sign_up">
-      <h2>Sign up</h2>
+      <br /><br />
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
 
-        <div><%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true %></div>
+    <div><%= f.label :email %><br /><br />
+        <%= f.email_field :email, autofocus: true, class: "input_boxes" %></div><br />
 
-        <div><%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
-          <%= f.password_field :password, autocomplete: "off" %></div>
+    <div><%= f.label :password %><br /><br />
+        <% if @validatable %>
+        <i>(<%= @minimum_password_length %> characters minimum)</i>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off", class: "input_boxes" %></div><br />
 
-        <div><%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+    <div><%= f.label :password_confirmation%><br /><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "input_boxes" %></div><br /><br />
 
-        <div><%= f.submit "Sign up" %></div>
-      <% end %>
+    <div><%= f.submit "Sign up", class: "login_button" %></div>
 
-      <%= render "devise/shared/links" %>
-    </div>
-  </div>
-</body>
+<% end %>
+</div>
+  
+     <div  id="sign_up_box">
+        <%= link_to "Log in", new_session_path(resource_name), class: "sign_in_button"%>
+     </div>   
+
+
+</div>
+ 

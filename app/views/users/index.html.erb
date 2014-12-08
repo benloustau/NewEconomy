@@ -1,19 +1,28 @@
- <h1>Browse Services</h1>
+ <div class="h1"><h1><span>Browse Services</span></h1></div>
 
- 	<%= form_tag users_path, :method => 'get'  do %>
-  <p>
-  <%= text_field_tag :search, params[:search]%>
-  <%= submit_tag "Search", :name => nil %>
-  </p>
-  <% end %>
- 
+  <div class="index_box">
+
+ 	  <div class="search_box"><%= form_tag users_path, :method => 'get' do %>
+      <p>
+        <%= text_field_tag :search, params[:search], class: "input_boxes"%>
+        <%= submit_tag "Search", :name => nil, class: "submitBtn" %>
+      </p>
+      <% end %>
+    </div>
+
+
+    <div class="user">
       <ol>
         <% @users.each do |user| %>
+        <div class="person">
           <li>
-            <%= image_tag user.avatar.url(:thumb) %> |
-            <%= link_to user.fname, user %> |
-            <%= user.offering %>|
-            <%= user.location %>
+            <div><%= image_tag user.avatar.url(:thumb) %>
+            <%= link_to user.fname, user %></div>
+            <p><%= user.offering %></p>
+            <p><%= user.location %></p>
           </li>
+         </div> 
         <% end %>
       </ol>
+    </div> 
+  </div>   

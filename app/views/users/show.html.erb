@@ -1,23 +1,32 @@
+<div class="h1"><h1><span>Profile Page</span></h1><div>
 
-<div class="container">
+	<div class="profile_box">
 
-	<h1><span>Profile Page</span></h1>
+		<div class="pic"><%= image_tag @user.avatar.url(:medium) %></div>
 
-		<h2><%= @user.username %></h2>
-		<%= image_tag @user.avatar.url(:medium) %>
+			<div class="profile">
+
+				<div class="username"><%= @user.username %></div>
+				<h3><%=link_to @user.email %></h3>
+				<% if @user.resume %>
+				<h3><%= link_to @user.resume %></h3>
+				<%else%>
+				<%= "no resume available" %>  
+				<% end %>
 
 
-		<h3><%=link_to @user.email %></h3>
+			<p><strong>First Name: </strong><%= @user.fname %></p>
+			<p><strong>Last Name: </strong><%= @user.lname %></p>
+			<p><strong>Location: </strong><%= @user.location %></p>
+			<p><strong>Description: </strong><%= @user.description %></p>
+			<p><strong>Service: </strong><%= @user.offering %></p><br />
 
-		<p><strong>First Name: </strong><%= @user.fname %></p>
-		<p><strong>Last Name: </strong><%= @user.lname %></p>
-		<p><strong>Location: </strong><%= @user.location %></p>
-		<p><strong>Description: </strong><%= @user.description %></p>
-		<p><strong>Service: </strong><%= @user.offering %></p><br />
+			</div>
 
-		<div style='width: 600px;'>
-  		<div id="map" style='width: 600px; height: 400px;'></div>
-		</div><br />
+				<div style='width: 350px;' class="map">
+  				<div id="map" style='width: 350px; height: 300px;'></div>
+				</div><br />
+		</div>
 
 	</div>
 </div>
