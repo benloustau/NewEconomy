@@ -1,15 +1,10 @@
- <div class="h1"><h1><span>Browse Services</span></h1></div>
+<div class="profile_box"> 
 
-  <div class="index_box">
+ <div class="h1"><h1>Browse Services</h1>
 
- 	  <div class="search_box"><%= form_tag users_path, :method => 'get' do %>
-      <p>
-        <%= text_field_tag :search, params[:search], class: "input_boxes"%>
-        <%= submit_tag "Search", :name => nil, class: "submitBtn" %>
-      </p>
-      <% end %>
-    </div>
+ </div>
 
+  <div class="container_main">
 
     <div class="user">
       <ol>
@@ -24,5 +19,15 @@
          </div> 
         <% end %>
       </ol>
-    </div> 
-  </div>   
+    </div>
+  </div>
+</div> 
+ <div class="search_box">
+  <%= form_tag users_path, :method => 'get' do %>
+      <p>
+        <%= text_field_tag :search, params[:search], class: "input_boxes"%>
+        <%= submit_tag "Search", :name => nil, class: "submitBtn" %>
+      </p>
+      <% end %>
+</div>
+

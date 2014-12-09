@@ -1,13 +1,17 @@
-<div class="h1"><h1><span>Profile Page</span></h1><div>
+<div class="profile_box">
 
-	<div class="profile_box">
+	<div class="h1"><h1>Profile Page</h1></div>
 
 		<div class="pic"><%= image_tag @user.avatar.url(:medium) %></div>
 
+		<div class="together">
+
+			<div class="username"><%= @user.username %></div>	
+
 			<div class="profile">
 
-				<div class="username"><%= @user.username %></div>
 				<h3><%=link_to @user.email %></h3>
+
 				<% if @user.resume %>
 				<h3><%= link_to @user.resume %></h3>
 				<%else%>
@@ -15,17 +19,18 @@
 				<% end %>
 
 
-			<p><strong>First Name: </strong><%= @user.fname %></p>
-			<p><strong>Last Name: </strong><%= @user.lname %></p>
-			<p><strong>Location: </strong><%= @user.location %></p>
-			<p><strong>Description: </strong><%= @user.description %></p>
-			<p><strong>Service: </strong><%= @user.offering %></p><br />
+				<p><strong>First Name: </strong><%= @user.fname %></p>
+				<p><strong>Last Name: </strong><%= @user.lname %></p>
+				<p><strong>Location: </strong><%= @user.location %></p>
+				<p><strong>Description: </strong><%= @user.description %></p>
+				<p><strong>Service: </strong><%= @user.offering %></p><br />
 
 			</div>
+		</div>
 
-				<div style='width: 350px;' class="map">
-  				<div id="map" style='width: 350px; height: 300px;'></div>
-				</div><br />
+				<!-- <div class="map"> -->
+  					<div id="map" style='width: 320px; height: 280px;'></div>
+				<!-- </div> -->
 		</div>
 
 	</div>
